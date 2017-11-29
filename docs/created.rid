@@ -1,0 +1,23 @@
+Fri, 17 Nov 2017 10:30:16 +0000
+./lib/alimentos.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./lib/alimentos/grupo.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./lib/alimentos/version.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./lib/alimentos/alimento.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./lib/alimentos/lista.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/setup	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/rake	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/htmldiff	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/console	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/ldiff	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/bundler	Thu, 16 Nov 2017 19:16:15 +0000
+./bin/rspec	Thu, 16 Nov 2017 19:16:15 +0000
+./spec/spec_helper.rb	Thu, 16 Nov 2017 19:16:15 +0000
+./spec/alimentos_spec.rb	Thu, 16 Nov 2017 19:51:23 +0000
+./CODE_OF_CONDUCT.md	Thu, 16 Nov 2017 19:16:15 +0000
+./Gemfile.lock	Thu, 16 Nov 2017 19:16:34 +0000
+./alimentos.gemspec	Thu, 16 Nov 2017 19:16:15 +0000
+./Gemfile	Thu, 16 Nov 2017 19:16:15 +0000
+./README.md	Thu, 16 Nov 2017 19:16:15 +0000
+./Rakefile	Thu, 16 Nov 2017 19:16:15 +0000
+./Guardfile	Thu, 16 Nov 2017 19:16:15 +0000
+./LICENSE.txt	Thu, 16 Nov 2017 19:16:15 +0000
