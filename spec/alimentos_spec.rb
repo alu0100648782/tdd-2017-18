@@ -1,6 +1,6 @@
 #pruebas
 require "spec_helper"
-
+require 'benchmark'
 describe Alimentos do
 
   context Alimento do
@@ -492,6 +492,108 @@ describe Alimentos do
 		expect(@calculadora1.mostrar_resultados).to be == "Resultados\nCompota 52.22\nYogurt 41.29\nChocolate 15.03\n"
 	end
   end
+  
+
+  context 'Operaciones de Ordenación' do
+         before :each do
+                 @alimentos1 = Alimento.new("Huevo frito", 14.1, 0.0, 19.5)
+                 @alimentos2 = Alimento.new("Leche vaca", 3.3, 4.8, 3.2)
+                 @alimentos3 = Alimento.new("Yogurt", 3.8, 4.8, 3.8)
+                 @alimentos4 = Alimento.new("Cerdo", 21.5, 0.0, 6.3)
+                 @alimentos5 = Alimento.new("Ternera", 21.1, 0.0, 3.1)
+                 @alimentos6 = Alimento.new("Pollo", 20.6, 0.0, 5.6)
+                 @alimentos7 = Alimento.new("Bacalao", 17.7, 0.0, 0.4)
+                 @alimentos8 = Alimento.new("Atún", 21.5, 0.0, 15.5)
+                 @alimentos9 = Alimento.new("Salmón", 19.9, 0.0, 13.6)
+                 @alimentos10 = Alimento.new("Aceite de oliva", 0.0, 0.2, 99.6)
+                 @alimentos11 = Alimento.new("Chocolate", 5.3, 47.0, 30.0)
+                 @alimentos12 = Alimento.new("Azúcar", 0.0, 99.8, 0.0)
+                 @alimentos13 = Alimento.new("Arroz", 6.8, 77.7, 0.6)
+                 @alimentos14 = Alimento.new("Lentejas", 23.5, 52.0, 1.4)
+                 @alimentos15 = Alimento.new("Papas", 2.0, 15.4, 0.1)
+                 @alimentos16 = Alimento.new("Tomate", 1.0, 3.5, 0.2)
+                 @alimentos17 = Alimento.new("Cebolla", 1.3, 5.8, 0.3)
+                 @alimentos18 = Alimento.new("Manzana", 0.3, 12.4, 0.4)
+                 @alimentos19 = Alimento.new("Plátanos", 1.2, 21.4, 0.2)
+                 @migrupo1 = Grupo.new(
+                 "Huevos, lacteos y helados",
+                 [ @alimentos1, @alimentos2, @alimentos3 ])
+                 @migrupo2 = Grupo.new(
+                 "Cerdo, Ternera y Pollo",
+                 [ @alimentos4, @alimentos5, @alimentos6 ])
+                 @migrupo3 = Grupo.new(
+                 "Pescados y mariscos",
+                 [ @alimentos7, @alimentos8, @alimentos9 ])
+                 @migrupo4 = Grupo.new(
+                 "Alimentos grasos",
+                 [ @alimentos10, @alimentos11, @alimentos12 ])
+                 @array = [@alimentos1, @alimentos2, @alimentos3, @alimentos4, @alimentos5, @alimentos6, @alimentos7, @alimentos8,
+                 @alimentos9, @alimentos10, @alimentos11, @alimentos12, @alimentos13, @alimentos14, @alimentos15, @alimentos16,
+                 @alimentos17, @alimentos18, @alimentos19]
+                 @lista1 = Lista.new(nil,nil)
+
+         end
+
+         it "Array nuevo con sus elementos ordenados usando bucles for" do
+                  @each = @array
+                  Benchmark.bm do |f|
+                      f.report("for:"){
+                      swapped = true
+                      n = @each.size-1
+                      while swapped do
+                        swapped = false
+                        for i in 0..n-1
+                          if @each[i].get_energetico > @each[i+1].get_energetico
+                              @each[i], @each[i + 1] = @each[i + 1], @each[i]
+                              swapped = true
+                          end
+                        end
+                      end
+                      }
+                  end
+                 #puts " Vector ordenado con for"
+                 #for i in 0..@each.size-1
+                 #  puts @each[i].get_energetico
+                 #end
+         end
+ 
+         it "Array nuevo con sus elementos ordenados usando el metodo each" do
+                @aux = []
+                for i in 0..@array.size-1
+                    @aux << @array[i].get_energetico
+                end
+                Benchmark.bm do |e|
+                    e.report("each:"){
+                    swapped = true
+                    while swapped do
+                          swapped = false
+                          (0..@aux.size-2).each_with_index do  |j|
+                              if  @aux[j] > @aux[j + 1]
+                                  @aux[j], @aux[j + 1] = @aux[j + 1], @aux[j]
+                                  swapped = true
+                              end
+                          end
+                    end
+                    }
+                end 
+                #for i in 0..@aux.size-1
+                #  puts @aux[i]
+                #end
+ 
+
+         end
+ 
+         it "Array nuevo con sus elementos ordenados usando el metodo sort" do
+                aux = []
+                Benchmark.bm do |s|
+                    s.report("sort:"){
+                        aux = @array.sort {|x,y| x.get_energetico <=> y.get_energetico}
+                    }
+                end
+                aux.each{|i| @lista1.insertar(i)}
+                #@lista1.to_s  
+                expect(@array).to match_array(aux)
+         end
   
 
 end
