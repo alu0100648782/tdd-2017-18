@@ -595,5 +595,5 @@ describe Alimentos do
                 expect(@array).to match_array(aux)
          end
   
-
+  end
 end
