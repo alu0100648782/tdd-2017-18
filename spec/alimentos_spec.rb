@@ -596,4 +596,29 @@ describe Alimentos do
          end
   
   end
+
+  context 'Harvard_DSL' do
+         before :each do
+                 @lentejas_arroz = Harvard_DSL.new("Lentejas con arroz, salsa de tomate, huevo y platano a la plancha") do 
+
+	         vegetal    "Tomate", 
+		            :porcion => "2 piezas pequenas"
+	         fruta      "Platano", 
+		            :gramos => 20 
+                 cereal     "Arroz",
+		            :porcion => "1 taza" 
+                 proteina   "Lentejas", 
+		            :porcion => "1/2 cucharon" 
+                 proteina   "Huevo", 
+		            :porcion => "1 pieza" 
+                 aceite     "Aceite de oliva", 
+		            :porcion => "1/2 cucharada"
+         end
+        end
+        it 'Comprueba Menu del Lunes con DSL' do
+	        expect(@lentejas_arroz.to_s).to eq("Lentejas con arroz, salsa de tomate, huevo y platano a la plancha\n=================================================================\n\nComposición nutricional:\n\nTomate (2 piezas pequenas)\n\nPlatano (20)\n\nArroz (1 taza)\n\nLentejas (1/2 cucharon)\n\nHuevo (1 pieza)\n\nAceite de oliva (1/2 cucharada)\n\n")
+        #puts @lentejas_arroz.to_s
+        end
+
+  end  
 end
