@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{sumario de la gema}
   spec.description   = %q{Descripcion de la gema}
-  spec.homepage      = "https://github.com/alu0100648782/tdd-2017-18"
+  spec.homepage      = "https://github.com/alu0100648782/tdd-2017-18.git"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
