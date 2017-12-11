@@ -613,12 +613,54 @@ describe Alimentos do
 		            :porcion => "1 pieza" 
                  aceite     "Aceite de oliva", 
 		            :porcion => "1/2 cucharada"
-         end
+                 end
+    
+                 @huevos_revueltos = Harvard_DSL.new("Huevos revueltos") do
+                
+                 vegetal    "Cebolla",
+                            :porcion => "2 piezas"
+                 fruta      "Manzana",
+                            :gramos => 20
+                 cereal     "Pan",
+                            :porcion => "1 pieza"
+                 proteina   "Huevo",
+                            :porcion => "2 piezas"
+                 aceite     "Aceite de oliva",
+                            :porcion => "1/2 cucharada"
+                 end
+
+                 @pure_pollo = Harvard_DSL.new("Pure de zanahoria con pollo") do
+
+                 vegetal    "Zanahoria",
+                            :porcion => "3 piezas"
+                 fruta      "Manzana",
+                            :gramos => 20
+                 cereal     "Pan",
+                            :porcion => "1 pieza"
+                 proteina   "Pollo",
+                            :gramos => "125"
+                 aceite     "Aceite de oliva",
+                            :porcion => "1/2 cucharada"
+                 end
+
+                 
         end
-        it 'Comprueba Menu del Lunes con DSL' do
+
+        it 'Comprueba plato del desayuno con DSL' do
+                expect(@huevos_revueltos.to_s).to eq("Huevos revueltos\n================\n\nComposición nutricional:\n\nCebolla (2 piezas)\n\nManzana (20)\n\nPan (1 pieza)\n\nHuevo (2 piezas)\n\nAceite de oliva (1/2 cucharada)\n\n")
+        #puts @huevos_revueltos.to.s
+        end
+
+        it 'Comprueba plato de la comida con DSL' do
 	        expect(@lentejas_arroz.to_s).to eq("Lentejas con arroz, salsa de tomate, huevo y platano a la plancha\n=================================================================\n\nComposición nutricional:\n\nTomate (2 piezas pequenas)\n\nPlatano (20)\n\nArroz (1 taza)\n\nLentejas (1/2 cucharon)\n\nHuevo (1 pieza)\n\nAceite de oliva (1/2 cucharada)\n\n")
         #puts @lentejas_arroz.to_s
         end
+
+        it 'Comprueba plato de la Cena con DSL' do
+                expect(@pure_pollo.to_s).to eq("Pure de zanahoria con pollo\n===========================\n\nComposición nutricional:\n\nZanahoria (3 piezas)\n\nManzana (20)\n\nPan (1 pieza)\n\nPollo (125)\n\nAceite de oliva (1/2 cucharada)\n\n")
+        #puts @pure_pollo.to.s
+        end
+
 
   end  
 end
