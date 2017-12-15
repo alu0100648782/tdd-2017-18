@@ -638,29 +638,27 @@ describe Alimentos do
                  cereal     "Pan",
                             :porcion => "1 pieza"
                  proteina   "Pollo",
-                            :gramos => "125"
+                            :porcion => "2 piezas"
                  aceite     "Aceite de oliva",
                             :porcion => "1/2 cucharada"
                  end
 
                  
         end
+        
 
         it 'Comprueba plato del desayuno con DSL' do
-                expect(@huevos_revueltos.to_s).to eq("Huevos revueltos\n================\n\nComposición nutricional:\n\nCebolla (2 piezas)\n\nManzana (20)\n\nPan (1 pieza)\n\nHuevo (2 piezas)\n\nAceite de oliva (1/2 cucharada)\n\n")
-        #puts @huevos_revueltos.to.s
+               puts @huevos_revueltos.to_s
+               expect(@huevos_revueltos.to_s).to eq("Huevos revueltos\n================\n\nComposición nutricional:\n\nCebolla, 6.0, 10.0, 4.0 100.0\nManzana, 18.0, 30.0, 12.0 300.0\nPan, 3.0, 5.0, 2.0 50.0\nHuevo, 6.0, 10.0, 4.0 100.0\nAceite de oliva, 18.0, 30.0, 12.0 300.0\nValor Energetico total                      850.0")             
         end
 
-        it 'Comprueba plato de la comida con DSL' do
-	        expect(@lentejas_arroz.to_s).to eq("Lentejas con arroz, salsa de tomate, huevo y platano a la plancha\n=================================================================\n\nComposición nutricional:\n\nTomate (2 piezas pequenas)\n\nPlatano (20)\n\nArroz (1 taza)\n\nLentejas (1/2 cucharon)\n\nHuevo (1 pieza)\n\nAceite de oliva (1/2 cucharada)\n\n")
-        #puts @lentejas_arroz.to_s
+        it 'Comprueba plato almuerzo con DSL' do
+               puts @lentejas_arroz.to_s
+               expect(@lentejas_arroz.to_s).to eq("Lentejas con arroz, salsa de tomate, huevo y platano a la plancha\n=================================================================\n\nComposición nutricional:\n\nTomate, 6.0, 10.0, 4.0 100.0\nPlatano, 18.0, 30.0, 12.0 300.0\nArroz, 3.0, 5.0, 2.0 50.0\nLentejas, 36.0, 60.0, 24.0 600.0\nHuevo, 3.0, 5.0, 2.0 50.0\nAceite de oliva, 18.0, 30.0, 12.0 300.0\nValor Energetico total                      1400.0")
         end
-
-        it 'Comprueba plato de la Cena con DSL' do
-                expect(@pure_pollo.to_s).to eq("Pure de zanahoria con pollo\n===========================\n\nComposición nutricional:\n\nZanahoria (3 piezas)\n\nManzana (20)\n\nPan (1 pieza)\n\nPollo (125)\n\nAceite de oliva (1/2 cucharada)\n\n")
-        #puts @pure_pollo.to.s
+        it 'Comprueba plato cena con DSL' do
+               puts @pure_pollo.to_s
+               expect(@pure_pollo.to_s).to eq("Pure de zanahoria con pollo\n===========================\n\nComposición nutricional:\n\nZanahoria, 9.0, 15.0, 6.0 150.0\nManzana, 18.0, 30.0, 12.0 300.0\nPan, 3.0, 5.0, 2.0 50.0\nPollo, 6.0, 10.0, 4.0 100.0\nAceite de oliva, 18.0, 30.0, 12.0 300.0\nValor Energetico total                      900.0")
         end
-
-
   end  
 end
